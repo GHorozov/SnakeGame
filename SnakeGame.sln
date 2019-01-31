@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snake.App", "Snake.App\Snake.App.csproj", "{08EC6ACC-CCE1-4A84-8494-2293B3D32F49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snake.Models", "Snake.Models\Snake.Models.csproj", "{327B03CD-7DAD-4068-B734-5FBED5182A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake.Data", "Snake.Data\Snake.Data.csproj", "{1D79940F-0EBE-433A-9D3B-A460E2F0115F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08EC6ACC-CCE1-4A84-8494-2293B3D32F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EC6ACC-CCE1-4A84-8494-2293B3D32F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EC6ACC-CCE1-4A84-8494-2293B3D32F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EC6ACC-CCE1-4A84-8494-2293B3D32F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327B03CD-7DAD-4068-B734-5FBED5182A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327B03CD-7DAD-4068-B734-5FBED5182A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327B03CD-7DAD-4068-B734-5FBED5182A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327B03CD-7DAD-4068-B734-5FBED5182A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D79940F-0EBE-433A-9D3B-A460E2F0115F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D79940F-0EBE-433A-9D3B-A460E2F0115F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D79940F-0EBE-433A-9D3B-A460E2F0115F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D79940F-0EBE-433A-9D3B-A460E2F0115F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BC36F2D-4173-4203-AB6F-A7A9966B4961}
+	EndGlobalSection
+EndGlobal
