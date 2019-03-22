@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-
     using Snake.App.Engines.Contracts;
     using Snake.Models.Players.Contracts;
     using Snake.Models.Positions;

@@ -1,7 +1,6 @@
 ﻿namespace Snake.Models.RamdomPositionGenerator
 {
     using System;
-
     using Snake.Models.GlobalConstants;
     using Snake.Models.Positions;
 

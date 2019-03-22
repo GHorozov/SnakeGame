@@ -6,7 +6,7 @@
     {
         void AddNewData(string name, int points);
 
-        KeyValuePair<string, int> ReturnBestScore();
+        KeyValuePair<string, int> ReturnBestPlayer();
 
         KeyValuePair<string, int>[] ReturnTopFivePlayers();
     }

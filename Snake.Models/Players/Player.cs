@@ -1,7 +1,6 @@
 ﻿namespace Snake.Models.Players
 {
     using System;
-
     using Snake.Models.Players.Contracts;
 
     public class Player : IPlayer

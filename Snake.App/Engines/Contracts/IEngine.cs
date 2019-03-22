@@ -1,7 +1,6 @@
 ﻿namespace Snake.App.Engines.Contracts
 {
     using System.Collections.Generic;
-
     using Snake.Models.Players.Contracts;
 
     public interface IEngine

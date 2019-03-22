@@ -1,7 +1,6 @@
 ﻿namespace Snake.Models.Snakes.Contracts
 {
     using System.Collections.Generic;
-
     using global::Snake.Models.Positions;
 
     public interface ISnake

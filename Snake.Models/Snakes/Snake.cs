@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
     using global::Snake.Models.Positions;
     using global::Snake.Models.Snakes.Contracts;
 

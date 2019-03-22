@@ -1,9 +1,10 @@
 ﻿namespace Snake.Data.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-
+    using System.Text;
     using Snake.Data.Data.Contracts;
 
     public class Data : IData
@@ -14,6 +15,7 @@
         public Data()
         {
             this.players = new Dictionary<string, int>();
+            this.players = GetReultsFromFile();
         }
 
         public void AddNewData(string name, int points)
@@ -23,59 +25,57 @@
                 var file = File.Create(filePath);
                 file.Close();
             }
-            else
+
+            if (!this.players.ContainsKey(name))
             {
-                if (!players.ContainsKey(name))
-                {
-                    players.Add(name, points);
-                    File.AppendAllLines(filePath, new List<string>() { $"{name}:{ points.ToString()}" });
-                }
-                else
-                {
-                    var currentValue = players[name];
-                    if (currentValue < points)
-                    {
-                        players[name] = points;
-                        var lines = new List<string>() { $"{name}:{ points.ToString()}" };
-                        File.AppendAllLines(filePath, lines);
-                    }
-                }
+                this.players[name] = 0;
             }
+
+            this.players[name] = points;
+
+            string stringResult = $"{name}:{points}" + Environment.NewLine;
+            File.AppendAllText(filePath, stringResult);
         }
 
-        public KeyValuePair<string, int> ReturnBestScore()
+        public KeyValuePair<string, int> ReturnBestPlayer()
         {
-            if (!File.Exists(filePath))
-            {
-                var file = File.Create(filePath);
-                file.Close();
-            }
+            var bestPlayer = this.players.OrderByDescending(x => x.Value).First();
 
-            var allLines = File.ReadAllLines(filePath);
-            foreach (var line in allLines)
-            {
-                var input = line.Split(":");
-                var name = input[0];
-                var points = int.Parse(input[1]);
-
-                if (!players.ContainsKey(name))
-                {
-                    
-                }
-
-                players[name] = points;
-            }
-
-            KeyValuePair<string, int> bestResult = players.OrderByDescending(x => x.Value).FirstOrDefault();
-
-            return bestResult;
+            return bestPlayer;
         }
 
         public KeyValuePair<string, int>[] ReturnTopFivePlayers()
         {
-            var result = this.players.OrderByDescending(x => x.Value).Take(5).ToArray();
+            var orderResults = this.players.OrderByDescending(x => x.Value).Take(5).ToArray();
 
-            return result;
+            return orderResults;
+        }
+
+        private Dictionary<string, int> GetReultsFromFile()
+        {
+            var resultDict = new Dictionary<string, int>();
+            if (this.players.Count == 0)
+            {
+                if (File.Exists(filePath))
+                {
+                    var lines = File.ReadAllLines(filePath);
+                    foreach (var line in lines)
+                    {
+                        var parts = line.Split(":");
+                        var name = parts[0];
+                        var points = int.Parse(parts[1]);
+
+                        if (!resultDict.ContainsKey(name))
+                        {
+                            resultDict[name] = 0;
+                        }
+
+                        resultDict[name] = points;
+                    }
+                }
+            }
+
+            return resultDict;
         }
     }
 }

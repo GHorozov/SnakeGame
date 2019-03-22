@@ -2,7 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using System.Linq;
+    using System.Threading;
     using Snake.App.Engines.Contracts;
     using Snake.App.InputProviders.Contracts;
     using Snake.App.Renderers.Contracts;
@@ -13,10 +14,8 @@
     using Snake.Models.Directions.Contracts;
     using Snake.Models.Directions;
     using Snake.Models.Positions;
-    using System.Threading;
     using Snake.Models.RamdomPositionGenerator;
     using Snake.Models.GlobalConstants;
-    using System.Linq;
     using Snake.Data.Data.Contracts;
 
     public class StandardOnePlayerEngine : IEngine
@@ -32,7 +31,6 @@
         private int currentDirection;
         private RandomGenerator randomGenerator;
         private int sleepTime;
-        private int currentBestScore;
 
         public StandardOnePlayerEngine(IInputProvider inputProvider, IOutputProvider outputProvider, IRenderer renderer, IData data)
         {
@@ -117,7 +115,7 @@
                     var newSnakeHead = new Position(snakeHead.X + newDirection.X, snakeHead.Y + newDirection.Y);
                     Position.ValidatePosition(this.snake, newSnakeHead);
                     this.snake.AddSegmentToSnake(newSnakeHead);
-                    var bestPlayer = this.data.ReturnBestScore();
+                    var bestPlayer = this.data.ReturnBestPlayer();
                     var bestScore = "0";
                     
                     if (bestPlayer.Key != null)
@@ -146,7 +144,7 @@
                 {
                     this.data.AddNewData(this.currentPlayer.Name, this.currentPlayer.Points);
                     this.outputProvider.WriteLine(ex.Message);
-                    var bestPlayer = this.data.ReturnBestScore();
+                    var bestPlayer = this.data.ReturnBestPlayer();
                     var bestScore = "0";
                     if (bestPlayer.Key != null)
                     {

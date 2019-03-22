@@ -34,7 +34,6 @@
             Console.Clear();
             Console.CursorVisible = false;
 
-            //Draw borders
             for (int i = 1; i <= Console.BufferWidth - 1; i++)
             {
                 Console.BackgroundColor = ConsoleColor.DarkGray;
